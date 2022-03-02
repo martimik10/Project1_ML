@@ -2,11 +2,15 @@
 import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure, subplot, plot, legend, show,  xlabel, ylabel, xticks, yticks
 import os #TODO delete if not needed 
-
+import warnings #suppress plt warnings
 # Open it from Spyder in appropriate folder (settings -> working dir -> curr proj dir)
 # Check all "DELETE" and "TODO" flags before hand-in
 #DELETE From exe 1.5.1 
+
+warnings.filterwarnings("ignore") #ignore ALL warnings (there are about 60 plt warning about update)
+    #if struggeling with debugging, turn this off! 
 
 filename = "dataset/penguins.csv"
 df = pd.read_csv(filename)
@@ -53,7 +57,7 @@ N, M = X.shape
 C = len(classNames)
 
 # ##### scatter plot of all of them (exe 4.3.2)
-plt.figure(figsize=(12,10))
+figure(figsize=(12,10))
 for m1 in range(M):
     for m2 in range(M):
         subplot(M, M, m1*M + m2 + 1)
