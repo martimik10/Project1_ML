@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os #TODO delete if not needed 
 
+# Open it from Spyder in appropriate folder (settings -> working dir -> curr proj dir)
 # Check all "DELETE" and "TODO" flags before hand-in
 #DELETE From exe 1.5.1 
 
@@ -52,7 +53,7 @@ N, M = X.shape
 C = len(classNames)
 
 # ##### scatter plot of all of them (exe 4.3.2)
-figure(figsize=(12,10))
+plt.figure(figsize=(12,10))
 for m1 in range(M):
     for m2 in range(M):
         subplot(M, M, m1*M + m2 + 1)
