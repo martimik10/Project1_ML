@@ -94,7 +94,7 @@ plt.xlabel('Principal component');
 plt.ylabel('Variance explained');
 plt.legend(['Individual','Cumulative','Threshold'])
 plt.grid()
-plt.savefig('images/variance_yes_standard.pdf',bbox_inches = 'tight')
+# plt.savefig('images/variance_yes_standard.pdf',bbox_inches = 'tight')
 plt.show()
 
 print('Ran Exercise 2.1.3')
