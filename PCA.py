@@ -51,14 +51,14 @@ y = np.array([classDict[cl] for cl in classLabels.astype("str")])
 N, M = X.shape
 C = len(classNames)
 
-# Subtract mean value from data
-# Y = X - np.ones((N,1))*X.mean(axis=0)
-Y = standardize_data(X)
-# PCA by computing SVD of Y
-U,S,V = svd(Y,full_matrices=False)
+################# preproccessing
+# Y = X - np.ones((N,1))*X.mean(axis=0) # no standardization
+Y = standardize_data(X) #high standardization
 
-# Compute variance explained by principal components
-rho = (S*S) / (S*S).sum() 
+U,S,V = svd(Y,full_matrices=False) # PCA by computing SVD of Y
+
+
+rho = (S*S) / (S*S).sum()  # Compute variance explained by PCA
 
 #what data is percieved by SVD with 3 principal components: 
 components = 2
@@ -97,6 +97,37 @@ plt.grid()
 # plt.savefig('images/variance_yes_standard.pdf',bbox_inches = 'tight')
 plt.show()
 
-print('Ran Exercise 2.1.3')
+################ coeffitients ex 2.1.5
+# We know that 3 PCA represent 97% of data which is enough.
+# percent of the variance. Let's look at their coefficients:
+pcs = [0,1,2]
+legendStrs = ['PC'+str(e+1) for e in pcs]
+c = ['r','g','b']
+bw = .2
+print(attributeNames)
+r = np.arange(1,M+1)
+for i in pcs:    
+    plt.bar(r+i*bw, V[:,i], width=bw)
+plt.xticks([1, 2, 3, 4])
+plt.xlabel("Attributes: 1:bill length 2:bill depth 3:flipper length 4:body mass")
+plt.ylabel('Component coefficients')
+plt.legend(legendStrs)
+plt.grid()
+plt.title('PCA Component Coefficients')
+# plt.savefig('images/PCA_coeffs.pdf',bbox_inches = 'tight')
+plt.show()
 
-
+############# PCA direction scatter
+# V=V.T # For the direction of V to fit the convention in the course we transpose
+Z = U *S
+i = 0 #principal component 1
+j = 1 #principal component 2
+for c in range(C):
+    plt.plot(Z[y==c,i], Z[y==c,j], '.', alpha=.5)
+plt.xlabel('PC'+str(i+1))
+plt.ylabel('PC'+str(j+1))
+plt.title('Zero-mean and unit variance\n' + 'Projection' )
+plt.legend(classNames)
+plt.axis('equal')
+plt.savefig('images/PCA_projection.pdf',bbox_inches = 'tight')
+plt.show()
