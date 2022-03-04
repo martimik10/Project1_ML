@@ -31,7 +31,7 @@ print('Ran Exercise 3.2.1')
 # exercise 4.1.3, 4.2.2
 # "2bill_length_mm","3bill_depth_mm","4flipper_length_mm","5body_mass_g"
 
-print(X[1, :])
+
 nb_of_attributes = 4
 figure(figsize=(8,7))
 u = int(np.floor(np.sqrt(nb_of_attributes)))

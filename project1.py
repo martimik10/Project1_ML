@@ -3,8 +3,8 @@ import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure, subplot, plot, legend, show,  xlabel, ylabel, xticks, yticks
-import os #TODO delete if not needed 
 import warnings #suppress plt warnings
+
 # Open it from Spyder in appropriate folder (settings -> working dir -> curr proj dir)
 # Check all "DELETE" and "TODO" flags before hand-in
 #DELETE From exe 1.5.1 
@@ -75,7 +75,7 @@ for m1 in range(M):
             #ylim(0,X.max()*1.1)
             #xlim(0,X.max()*1.1)
 legend(classNames)
-plt.savefig('images/scatter_plot_all.png', dpi=300)
+# plt.savefig('images/scatter_plot_all.png', dpi=300)
 show()
 print("best for classification seems to be body mass vs bill depth")
 ###### Scatter plot of body mass vs bill depth (exe 1.5.4)
@@ -92,5 +92,6 @@ for c in range(len(classNames)):
 plt.legend()
 plt.xlabel(attributeNames[i])
 plt.ylabel(attributeNames[j])
-plt.savefig('images/scatter_plot_2D.png', dpi=300)
+# plt.savefig('images/scatter_plot_2D.png', dpi=300)
 plt.show()
+
