@@ -9,7 +9,7 @@ from project1 import *
 
 
 
-# ##### scatter plot of all of them (exe 4.3.2)
+###### scatter plot of all of them (exe 4.3.2)
 figure(figsize=(12,10))
 for m1 in range(M):
     for m2 in range(M):
@@ -33,13 +33,11 @@ show()
 print("best for classification seems to be body mass vs bill depth")
 ###### Scatter plot of body mass vs bill depth (exe 1.5.4)
 i = 4; j = 2;
-color = ['r','g', 'b']
 plt.title('Penguin classification')
 for c in range(len(classNames)):
     idx = y == c
     plt.scatter(x=X[idx, i],
                 y=X[idx, j], 
-                c=color[c], 
                 s=50, alpha=0.5,
                 label=classNames[c])
 plt.legend()

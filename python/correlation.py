@@ -4,7 +4,6 @@
 from project1 import *
 import matplotlib.pyplot as plt
 import numpy as np
-
 from scipy.stats import pearsonr
 
 interval_attributes = range(1, 5)

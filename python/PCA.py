@@ -7,6 +7,8 @@ Created on Fri Mar  4 15:09:41 2022
 # ex2.1.3
 from project1 import *
 from scipy.linalg import svd
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
 
 def standardize_data(arr):
          
@@ -56,6 +58,7 @@ C = len(classNames)
 Y = standardize_data(X) #high standardization
 
 U,S,V = svd(Y,full_matrices=False) # PCA by computing SVD of Y
+print(V)
 
 
 rho = (S*S) / (S*S).sum()  # Compute variance explained by PCA
@@ -117,17 +120,39 @@ plt.title('PCA Component Coefficients')
 # plt.savefig('images/PCA_coeffs.pdf',bbox_inches = 'tight')
 plt.show()
 
-############# PCA direction scatter
+############# PCA direction scatter 2D
 # V=V.T # For the direction of V to fit the convention in the course we transpose
 Z = U *S
 i = 0 #principal component 1
 j = 1 #principal component 2
+
 for c in range(C):
-    plt.plot(Z[y==c,i], Z[y==c,j], '.', alpha=.5)
+    plt.plot(Z[y==c,i], Z[y==c,j],'.', alpha=.5)
 plt.xlabel('PC'+str(i+1))
 plt.ylabel('PC'+str(j+1))
 plt.title('Zero-mean and unit variance\n' + 'Projection' )
 plt.legend(classNames)
 plt.axis('equal')
 # plt.savefig('images/PCA_projection.pdf',bbox_inches = 'tight')
+plt.show()
+
+############# PCA direction scatter 3D
+# V=V.T # For the direction of V to fit the convention in the course we transpose
+Z = U *S
+i = 0 #principal component 1
+j = 1 #principal component 2
+k = 2 #principal component 3
+
+fig = plt.figure()
+ax = plt.axes(projection ='3d')
+
+for c in range(C):
+    ax.plot3D(Z[y==c,i], Z[y==c,j], Z[y==c,k],'.', alpha=.5)
+ax.set_xlabel('PC'+str(i+1))
+ax.set_ylabel('PC'+str(j+1))
+ax.set_zlabel('PC'+str(k+1))
+ax.set_title('Zero-mean and unit variance\n' + 'Projection' )
+ax.legend(classNames)
+ax.axis('auto')
+plt.savefig('images/PCA_projection_3D.png',dpi = 500)
 plt.show()

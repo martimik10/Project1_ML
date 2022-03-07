@@ -7,7 +7,7 @@ import warnings #suppress plt warnings
 
 # Open it from Spyder in appropriate folder (settings -> working dir -> curr proj dir)
 # Check all "DELETE" and "TODO" flags before hand-in
-#DELETE From exe 1.5.1 
+# DELETE From exe 1.5.1 
 
 warnings.filterwarnings("ignore") #ignore ALL warnings (there are about 60 plt warning about update)
     #if struggeling with debugging, turn this off! 
@@ -17,7 +17,7 @@ df = pd.read_csv(filename)
 
 raw_data = df.values
 
-########### LINEAR REGRESSION #################################################
+# LINEAR REGRESSION 
 #0:rowid 1:species 2:island 3:bill_length_mm 4:bill_depth_mm	
     # 5:flipper_length_mm	6:body_mass_g	7:sex	8:year
 # cols = range(3, 7) #for regression we want only the interval attributes
@@ -40,9 +40,7 @@ raw_data = df.values
 # C = len(classNames)
 # # print(N, M, C)
 
-########################################################################
-
-############## CLASSIFICATION PREPROCESS ##########################################
+# CLASSIFICATION PREPROCESS
 #We want to predict sex on all other meaningful attributes
 cols = [1, 3, 4, 5, 6, 7] #we dont care about rowID, year, island
 X = raw_data[:, cols]

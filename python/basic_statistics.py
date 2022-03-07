@@ -3,7 +3,7 @@
 from scipy.stats import norm
 import numpy as np
 from project1 import *
-from matplotlib.pyplot import figure, subplot, hist, xlabel, ylim, show
+from matplotlib.pyplot import figure, subplot, hist, xlabel, ylim, show, boxplot
 
 x = np.array(raw_data[:, 6]) #CHANGE COLUMN HERE. IF DISCRETE USE dtype=int
 # x = np.array([-0.68, -2.11, 2.39, 0.26, 1.46, 1.33, 1.03, -0.41, -0.33, 0.47])
