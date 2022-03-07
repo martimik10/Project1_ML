@@ -12,7 +12,7 @@ import warnings #suppress plt warnings
 warnings.filterwarnings("ignore") #ignore ALL warnings (there are about 60 plt warning about update)
     #if struggeling with debugging, turn this off! 
 
-filename = "dataset/penguins.csv"
+filename = "../dataset/penguins.csv"
 df = pd.read_csv(filename)
 
 raw_data = df.values

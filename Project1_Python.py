@@ -7,23 +7,14 @@ import warnings #suppress plt warnings
 
 # Basic Statistics
 from scipy.stats import norm
-import numpy as np
-from project1 import *
 from matplotlib.pyplot import figure, subplot, hist, xlabel, ylim, show, boxplot
 
 # Correlation
-from project1 import *
-import matplotlib.pyplot as plt
-import numpy as np
 from scipy.stats import pearsonr
 
 # Scatter plots
-from project1 import *
-
 # PCA
-from project1 import *
 from scipy.linalg import svd
-import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 
 def standardize_data(arr):
@@ -57,7 +48,6 @@ def standardize_data(arr):
 #######################################################
 #### PROJECT 1
 #######################################################
-
 # Open it from Spyder in appropriate folder (settings -> working dir -> curr proj dir)
 # Check all "DELETE" and "TODO" flags before hand-in
 # DELETE From exe 1.5.1 
@@ -70,30 +60,7 @@ df = pd.read_csv(filename)
 
 raw_data = df.values
 
-# LINEAR REGRESSION 
-#0:rowid 1:species 2:island 3:bill_length_mm 4:bill_depth_mm	
-    # 5:flipper_length_mm	6:body_mass_g	7:sex	8:year
-# cols = range(3, 7) #for regression we want only the interval attributes
 
-# X = raw_data[:, cols] #obtain matrix X
-# #obtain attribute names 
-# attributeNames = np.asarray(df.columns[cols]) #['bill_length_mm' 'bill_depth_mm' 'flipper_length_mm' 'body_mass_g']
-
-# # -> we want labels to be species
-# classLabels = raw_data[:, 1]
-
-
-# #obtain class names 
-# classNames = np.unique(classLabels) # = ['Adelie' 'Chinstrap' 'Gentoo']
-# classDict = dict(zip(classNames,range(len(classNames)))) #{'Adelie': 0, 'Chinstrap': 1, 'Gentoo': 2}
-
-# y = np.array([classDict[cl] for cl in classLabels]) #[0 0 0 2 2 1 1...]
-
-# N, M = X.shape
-# C = len(classNames)
-# # print(N, M, C)
-
-# CLASSIFICATION PREPROCESS
 #We want to predict sex on all other meaningful attributes
 cols = [1, 3, 4, 5, 6, 7] #we dont care about rowID, year, island
 X = raw_data[:, cols]
@@ -170,7 +137,6 @@ plt.close()
 # for m1 in interval_attributes:
 #     for m2 in interval_attributes:
 #         # print("pairs", m1, m2, c)
-#         class_mask = (y==c)
 #         x = X[:,m1]
 #         y = X[:,m2]
 #         corr, _ = pearsonr(x, y)
@@ -181,7 +147,6 @@ plt.close()
 #######################################################
 #### SCATTER PLOTS
 #######################################################
-from project1 import *
 figure(figsize=(12,10))
 for m1 in range(M):
     for m2 in range(M):

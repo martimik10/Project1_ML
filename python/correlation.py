@@ -10,7 +10,6 @@ interval_attributes = range(1, 5)
 for m1 in interval_attributes:
     for m2 in interval_attributes:
         # print("pairs", m1, m2, c)
-        class_mask = (y==c)
         x = X[:,m1]
         y = X[:,m2]
         corr, _ = pearsonr(x, y)
